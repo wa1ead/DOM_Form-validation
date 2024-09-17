@@ -1,0 +1,39 @@
+body {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.body {
+  border: solid 1px cyan;
+  margin: 5rem 20rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.result{
+  width: calc(400px + 4rem);
+  text-align:center;
+}
+
+button {
+  width: 100px;
+  height: 100px;
+  margin: 0.5rem;
+  background-color: forestgreen;
+  color: white;
+  border: 1px solid gray;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.reset {
+  display: block;
+  width: calc(400px + 4rem);
+  height: 4rem;
+  background-color: crimson;
+  border: none;
+  border-radius: 0;
+}
