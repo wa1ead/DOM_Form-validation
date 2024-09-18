@@ -4,11 +4,11 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Calculator</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <div class="body">
-      <div class="result"><h1>result</h1></div>
+    <div class="body" id="calculator">
+      <div class="result" id="display"></div>
       <div class="buttons">
         <div>
           <button>1</button>
@@ -37,5 +37,61 @@
       </div>
       <button type="reset" class="reset">Clear all</button>
     </div>
+    <script>
+      const calculator = document.getElementById("calculator");
+      const display = document.getElementById("display");
+      const buttons = calculator.querySelectorAll("button");
+
+      let currentValue = "";
+      let operator = "";
+
+      buttons.forEach((button) => {
+        button.addEventListener("click", () => {
+          const buttonValue = button.textContent;
+
+          if (buttonValue === "Clear all") {
+            currentValue = "";
+            operator = "";
+            display.textContent = "";
+          } else if (
+            buttonValue === "+" ||
+            buttonValue === "-" ||
+            buttonValue === "x" ||
+            buttonValue === "/"
+          ) {
+            if (currentValue !== "") {
+              operator = buttonValue;
+              display.textContent += ` ${operator}`;
+            }
+          } else if (buttonValue === "=") {
+            if (currentValue !== "" && operator !== "") {
+              const result = calculate(currentValue, operator);
+              currentValue = result;
+              operator = "";
+              display.textContent = result;
+            }
+          } else {
+            currentValue += buttonValue;
+            display.textContent += buttonValue;
+          }
+        });
+      });
+
+      function calculate(num1, operator) {
+        const num2 = currentValue;
+        switch (operator) {
+          case "+":
+            return num1 + num2;
+          case "-":
+            return num1 - num2;
+          case "x":
+            return num1 * num2;
+          case "/":
+            return num1 / num2;
+          default:
+            return 0;
+        }
+      }
+    </script>
   </body>
 </html>
