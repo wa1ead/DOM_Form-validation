@@ -6,16 +6,20 @@ body {
 
 .body {
   border: solid 1px cyan;
-  margin: 5rem 20rem;
+  margin: 1rem 20rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  background-color: gray;
 }
 
 .result{
   width: calc(400px + 4rem);
   text-align:center;
+  padding: 2rem 0;
+  background-color: darkgreen;
+  color:lightgray;
 }
 
 button {
