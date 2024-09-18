@@ -54,27 +54,30 @@
             currentValue = "";
             operator = "";
             display.textContent = "";
-          } 
-          else if ( buttonValue === "+" || buttonValue === "-" || buttonValue === "x" ||  buttonValue === "/" ) {
-                      if (currentValue) {
-                        console.log("this is the curVal: ", currentValue);
-                        operator = buttonValue;
-                        pastValue = currentValue
-                        display.textContent += ` ${operator} `;
-                        console.log(pastValue, operator);
-                      }
+          } else if (
+            buttonValue === "+" ||
+            buttonValue === "-" ||
+            buttonValue === "x" ||
+            buttonValue === "/"
+          ) {
+            if (currentValue) {
+              // console.log("this is the curVal: ", currentValue);
+              operator = buttonValue;
+              pastValue = currentValue;
+              display.textContent += ` ${operator} `;
+              // console.log(pastValue, operator);
+            }
           } else if (buttonValue === "=") {
-                    if (currentValue && operator) {
-                      // const result = calculate(currentValue, operator);
-                      // currentValue = Number(result);
-                      // operator = "";
-                      var result = Number(pastValue) + Number(currentValue)
-                      console.log(result)
-                      display.textContent = result;
-                    }
+            if (currentValue && operator) {
+              const result = calculate(pastValue, operator);
+              currentValue = Number(result);
+              operator = "";
+              // console.log(result);
+              display.textContent = result;
+            }
           } else {
             currentValue = buttonValue;
-            console.log("this is the current value", currentValue)
+            // console.log("this is the current value", currentValue);
             display.textContent += buttonValue;
           }
         });
@@ -84,9 +87,9 @@
         num1 = Number(num1);
         const num2 = Number(currentValue);
 
-        console.log("the current value", num2);
-        console.log( "the args value", num1);
-        console.log(typeof num2);
+        // console.log("the current value", num2);
+        // console.log("the args value", num1);
+        // console.log(typeof num2);
         switch (operator) {
           case "+":
             return num1 + num2;
